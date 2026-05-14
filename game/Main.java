@@ -1,16 +1,22 @@
 package game;
-//import external.robo.EnemyRobot;
+
+import external.robo.EnemyRobot;
 
 public class Main {
     public static void main(String[] args) {
+        // Creamos un jugador normal
         Enemy enemy1 = new Player();
-        Enemy enemy2 = new Player();
         
-
-        enemy2.takeDamage(enemy1.attack(enemy2));
-        System.out.println(enemy2.getHealth());
+        // 1. Instanciar el robot de la librería externa [cite: 15]
+        EnemyRobot robotExterno = new EnemyRobot();
         
-        //robotEnemy.attack(enemy2); --> Objetivo
-
-        }
+        // 2. Usar el Adapter para convertirlo en un Enemy [cite: 22]
+        Enemy robotAdaptado = new RobotAdapter(robotExterno);
+        
+        // Ejemplo de ataque usando polimorfismo
+        int danio = robotAdaptado.attack(enemy1);
+        enemy1.takeDamage(danio);
+        
+        System.out.println("Vida del jugador tras ataque del robot: " + enemy1.getHealth());
+    }
 }
