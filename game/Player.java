@@ -50,4 +50,7 @@ public class Player implements Enemy {
     public void setPosx(int x){
         this.posx = x;
     }
+      public int getPosy(){
+        return this.posy;
+    }
 }
