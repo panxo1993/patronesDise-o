@@ -4,6 +4,7 @@ import external.robo.EnemyRobot; // Esto se pondrá en blanco una vez agregues e
 
 public class RobotAdapter implements Enemy {
     private EnemyRobot robot;
+    //aplicacion de metodo bridge
     private AttackStrategy attackStrategy;
 
     public RobotAdapter(EnemyRobot robot) {
